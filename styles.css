@@ -1,0 +1,46 @@
+:root { --ink:#273129; --sand:#f7f0e5; --gold:#b59868; --cream:#fffaf3; --muted:#6e7068; }
+* { box-sizing:border-box; }
+html { background:#e9e1d4; }
+body { margin:0; color:var(--ink); font-family:"DM Sans",sans-serif; }
+.page-shell { max-width:500px; min-height:100vh; margin:auto; overflow:hidden; background:var(--sand); box-shadow:0 0 50px rgba(43,31,16,.14); }
+.site-header { height:84px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; background:#fffdf9; border-bottom:1px solid #eadfce; }
+.logo-frame { width:140px; height:66px; display:flex; align-items:center; }
+.logo-frame img { width:100%; max-height:66px; display:block; object-fit:contain; }
+.header-action { display:flex; align-items:center; gap:6px; color:var(--ink); text-decoration:none; text-transform:uppercase; font-size:10px; font-weight:700; letter-spacing:.1em; }
+.header-action span { color:var(--gold); font-size:16px; line-height:1; }
+.hero { aspect-ratio:1; position:relative; overflow:hidden; background:#f8efe1; }
+.hero-track, .hero-image { width:100%; height:100%; }
+.hero-image { position:absolute; inset:0; display:block; object-fit:contain; opacity:0; transition:opacity .65s ease-in-out; }
+.hero-image.is-active { opacity:1; }
+.hero-dots { position:absolute; z-index:1; bottom:12px; left:50%; display:flex; gap:6px; transform:translateX(-50%); }
+.hero-dots span { display:block; width:6px; height:6px; border:1px solid rgba(255,255,255,.9); border-radius:99px; background:rgba(36,28,17,.18); box-shadow:0 1px 3px rgba(0,0,0,.28); transition:.25s; }
+.hero-dots .is-active { width:20px; background:#fffdf8; }
+.eyebrow { margin:0 0 10px; text-transform:uppercase; letter-spacing:.13em; font-weight:700; font-size:10px; color:var(--gold); }
+h1,h2 { margin:0; font-family:"Playfair Display",serif; font-weight:500; letter-spacing:-.04em; line-height:1.06; }
+h1 { font-size:42px; text-shadow:0 1px 9px rgba(0,0,0,.18); }
+em { color:#c8a86f; font-weight:500; }
+.enquiry { position:relative; z-index:2; margin-top:-10px; padding:47px 25px 30px; background:var(--sand); }
+.enquiry::before { content:""; position:absolute; top:-18px; left:0; right:0; height:27px; border-radius:50% 50% 0 0; background:var(--sand); }
+.form-heading { position:relative; }
+.form-copy { margin-top:31px; }
+.form-copy h2 { font-size:32px; }
+.form-copy > p { margin:13px 0 0; color:var(--muted); font-size:13px; line-height:1.55; }
+form { display:grid; gap:8px; }
+label { margin-top:6px; color:#444940; font-size:12px; font-weight:600; }
+.field-wrap { height:52px; display:flex; align-items:center; border:1px solid #d9cdbd; border-radius:11px; background:rgba(255,253,248,.72); transition:.2s ease; }
+.field-wrap:focus-within { border-color:var(--gold); box-shadow:0 0 0 3px rgba(181,152,104,.14); }
+input { width:100%; min-width:0; height:100%; border:0; outline:0; background:transparent; padding:0 15px; color:var(--ink); font:500 15px "DM Sans",sans-serif; }
+input::placeholder { color:#a49b8e; font-weight:400; }
+.country-code { padding-left:15px; color:#6e655a; font-size:14px; font-weight:600; border-right:1px solid #ddd2c4; line-height:23px; }
+.phone-wrap input { padding-left:12px; }
+.phone-hint { margin:0 2px 2px; color:#8b877e; font-size:10px; line-height:1.35; }
+.error { min-height:16px; margin:1px 0 -1px; color:#a84132; font-size:12px; }
+button { height:54px; border:0; border-radius:11px; margin-top:5px; color:#fffdf8; background:var(--ink); font:600 15px "DM Sans",sans-serif; cursor:pointer; box-shadow:0 8px 17px rgba(39,49,41,.18); transition:transform .16s,background .16s; }
+button:hover { background:#3a493d; } button:active { transform:scale(.985); } button span { margin-left:8px; font-size:20px; vertical-align:-1px; }
+.privacy { margin:6px 4px 0; color:#8b877e; text-align:center; font-size:10px; line-height:1.4; }
+.success-message { text-align:center; padding:22px 4px 15px; animation:appear .35s ease-out; }
+.tick { display:grid; place-items:center; width:48px; height:48px; margin:0 auto 15px; border:1px solid var(--gold); border-radius:50%; color:var(--ink); font-size:23px; }
+.success-message h2 { font-size:29px; }.success-message h2 span{color:var(--gold)} .success-message p { color:var(--muted); font-size:14px; line-height:1.5; }
+@keyframes appear { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:none } }
+@media (min-width:501px) { body { padding:16px; } .page-shell { border-radius:20px; min-height:calc(100vh - 32px); } }
+@media (prefers-reduced-motion: reduce) { .hero-image { transition:none; } }
