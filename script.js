@@ -1,6 +1,7 @@
 const form = document.querySelector('#enquiry-form');
 const error = document.querySelector('#form-error');
 const success = document.querySelector('#success-message');
+const closeSuccess = () => { success.hidden = true; };
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzJiwalS9mZ45xLq3p9iw9qDMJ4JKmSZS7a57J_yAdKk_QK9P2i05YRxshAW8Cf_IF/exec';
 
 form.addEventListener('submit', (event) => {
@@ -16,10 +17,13 @@ form.addEventListener('submit', (event) => {
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify({ name, phone })
   }).catch(() => {});
-  document.querySelector('#submitted-name').textContent = name.split(' ')[0];
-  form.hidden = true;
+  form.reset();
   success.hidden = false;
 });
+
+document.querySelector('#success-close').addEventListener('click', closeSuccess);
+document.querySelector('#success-done').addEventListener('click', closeSuccess);
+success.addEventListener('click', (event) => { if (event.target === success) closeSuccess(); });
 
 document.querySelector('#phone').addEventListener('input', (event) => {
   event.target.value = event.target.value.replace(/\D/g, '').slice(0, 10);

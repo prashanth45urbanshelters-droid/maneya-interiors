@@ -50,13 +50,17 @@
           <p>Tell us a little about yourself. Our design team will be in touch shortly.</p>
         </div>
 
-        <div class="success-message" id="success-message" hidden>
-          <div class="tick">✓</div>
-          <h2>Thank you, <span id="submitted-name">there</span>.</h2>
-          <p>Your design journey begins here. We’ll call you shortly.</p>
-        </div>
       </section>
     </main>
+    <div class="success-modal" id="success-message" role="dialog" aria-modal="true" aria-labelledby="success-title" hidden>
+      <div class="success-card">
+        <button class="modal-close" id="success-close" type="button" aria-label="Close success message">×</button>
+        <div class="tick">✓</div>
+        <h2 id="success-title">Enquiry received</h2>
+        <p>Thank you! Our design team will call you shortly.</p>
+        <button class="modal-button" id="success-done" type="button">Done</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
